@@ -1,5 +1,6 @@
 package app;
 
+import controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,10 @@ public class Main extends Application {
 		stage.setScene(scene);
 		stage.setTitle("Unit Converter v0.1");
 		stage.show();
+		MainController controller = new MainController();
+		while(true) {
+			controller.change();
+		}
 	}
 	
 	public static void main(String[] args) {
