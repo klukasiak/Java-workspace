@@ -26,4 +26,7 @@ hs_err_pid*
 
 *.metadata
 *.recommenders
+*.classpath
+*.project
+*.settings
 # End of https://www.gitignore.io/api/java
