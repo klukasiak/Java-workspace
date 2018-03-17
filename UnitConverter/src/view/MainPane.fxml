@@ -10,11 +10,11 @@
       <AnchorPane prefHeight="239.0" prefWidth="390.0">
          <children>
             <ChoiceBox fx:id="selectTypeInto" layoutX="226.0" layoutY="144.0" prefWidth="150.0" />
-            <ChoiceBox fx:id="selectType" layoutX="120.0" layoutY="14.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="selectType" layoutX="120.0" layoutY="14.0" prefWidth="150.0" onAction="#change"/>
             <ChoiceBox fx:id="selectTypeFrom" layoutX="14.0" layoutY="144.0" prefWidth="150.0" />
             <TextArea fx:id="textFrom" layoutX="14.0" layoutY="82.0" prefHeight="38.0" prefWidth="150.0" />
             <TextArea fx:id="textInto" layoutX="226.0" layoutY="82.0" prefHeight="38.0" prefWidth="150.0" />
-            <Button fx:id="convertButton" layoutX="159.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Convert" />
+            <Button fx:id="convertButton" layoutX="159.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Convert" onAction="#convert"/>
          </children>
       </AnchorPane>
    </children>
