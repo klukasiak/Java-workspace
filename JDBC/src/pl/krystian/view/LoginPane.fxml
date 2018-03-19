@@ -58,7 +58,7 @@
    <bottom>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="157.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #65ed7c;" text="Sign in" textFill="#2a6634">
+            <Button fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #65ed7c;" text="Sign in" textFill="#2a6634" onAction="#test">
                <opaqueInsets>
                   <Insets bottom="10.0" />
                </opaqueInsets>
