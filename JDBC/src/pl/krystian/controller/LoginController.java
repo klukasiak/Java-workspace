@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginController {
+public class LoginController{
 
     @FXML
     private Label titleLabel;
@@ -39,4 +39,6 @@ public class LoginController {
     @FXML
     private Button registerButton;
 
+    
 }
+
