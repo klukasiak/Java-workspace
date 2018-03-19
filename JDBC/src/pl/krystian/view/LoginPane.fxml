@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="221.0" text="Login Panel" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Verdana" size="38.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="177.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Username" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <TextField alignment="CENTER" maxHeight="-Infinity" />
+            <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Password" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pass.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField alignment="CENTER" />
+         </children>
+         <opaqueInsets>
+            <Insets top="80.0" />
+         </opaqueInsets>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="107.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #65ed7c;" text="Sign in" textFill="#2a6634">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </Button>
+            <CheckBox mnemonicParsing="false" text="CheckBox">
+               <graphic>
+                  <Label text="Remember me?" textFill="WHITE" />
+               </graphic>
+            </CheckBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+</BorderPane>
