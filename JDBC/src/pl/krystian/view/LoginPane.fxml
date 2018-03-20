@@ -32,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Label>
-            <TextField fx:id="usernameTextfield" alignment="CENTER" maxHeight="-Infinity" />
+            <TextField fx:id="usernameTextField" alignment="CENTER" maxHeight="-Infinity" />
             <Label fx:id="passwordLabel" maxHeight="-Infinity" maxWidth="-Infinity" text="Password" textAlignment="CENTER" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
@@ -58,7 +58,7 @@
    <bottom>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="157.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #65ed7c;" text="Sign in" textFill="#2a6634" onAction="#test">
+            <Button fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" onAction="#test" style="-fx-background-color: #65ed7c;" text="Sign in" textFill="#2a6634">
                <opaqueInsets>
                   <Insets bottom="10.0" />
                </opaqueInsets>
@@ -74,6 +74,7 @@
                   <Insets bottom="50.0" left="20.0" />
                </VBox.margin>
             </CheckBox>
+            <Label fx:id="connectionLabel" style="-fx-background-color: #303030;" text="Connection Label" />
             <Label fx:id="registerLabel" text="New here?" textFill="WHITE">
                <VBox.margin>
                   <Insets top="20.0" />
