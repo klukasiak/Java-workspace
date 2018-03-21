@@ -50,6 +50,9 @@ public class MainController implements Initializable{
 
     @FXML
     private Button deleteButton;
+    
+    @FXML
+    private Button refreshButton;
 
     @FXML
     private Label firstNameLabel;
@@ -65,34 +68,46 @@ public class MainController implements Initializable{
 
     @FXML
     private Label nicknameLabel;
-
+    
+    private ObservableList<Person> perslist = FXCollections.observableArrayList();
+    private DBConnection conn = new DBConnection();
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		LoginController main = new LoginController();
-		String username = main.getUsername();
-		String password = main.getPassword();
-		DBConnection conn = new DBConnection();
+		tableRefresh();
+	}
+	
+	public ObservableList<Person> getPersonList(){
+		return perslist;
+	}
+	
+	public void tableInit() {
+		idColumn.setCellValueFactory(cellData -> cellData.getValue().getID().asObject());
+		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().getFirstName());
+        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().getLastName());
+        ageColumn.setCellValueFactory(cellData -> cellData.getValue().getAge().asObject());
+        cityColumn.setCellValueFactory(cellData -> cellData.getValue().getCity());
+        nicknameColumn.setCellValueFactory(cellData -> cellData.getValue().getNickname());
+	}
+	
+	public void tableRefresh() {
 		try {
 			Statement stmt = conn.connect("postgres", "qwerty").createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
-			ObservableList<Person> perslist = FXCollections.observableArrayList();
+			tableInit();
 			while(rs.next()) {
-				Person person = new Person();
-				person.setID(rs.getInt("id_user"));
-				person.setFirstName(rs.getString("firstname"));
-				person.setLastName(rs.getString("lastname"));
-				person.setAge(rs.getInt("age"));
-				person.setCity(rs.getString("city"));
-				person.setNickname(rs.getString("nickname"));
-				perslist.add(person);
+				int ID = rs.getInt("id_user");
+				String firstName = rs.getString("firstname");
+				String lastName = rs.getString("lastname");
+				int age = rs.getInt("age");
+				String city = rs.getString("city");
+				String nickname = rs.getString("nickname");
+				perslist.add(new Person(ID, firstName, lastName, age, city, nickname));
 			}
-			
+			mainTable.setItems(getPersonList());
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
-		
-
-		
 	}
-
+	
 }

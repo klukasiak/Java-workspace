@@ -18,7 +18,7 @@
    <children>
       <SplitPane dividerPositions="0.5" prefHeight="500.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: #303030;">
+          <AnchorPane prefHeight="500.0" prefWidth="450.0">
                <children>
                   <TableView fx:id="mainTable" prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: #303030;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
@@ -57,7 +57,11 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Delete Selected User" textFill="#428aff" />
+                              <Button fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Delete Selected User" textFill="#428aff">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin></Button>
+                              <Button fx:id="refreshButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #00a802;" text="Refresh" textFill="#00e202" />
                            </children>
                         </VBox>
                      </bottom>
