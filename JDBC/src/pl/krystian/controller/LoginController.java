@@ -1,8 +1,16 @@
 package pl.krystian.controller;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,8 +23,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pl.krystian.DBConnection;
 
-public class LoginController {
-	
+public class LoginController implements Initializable {
+
 	private String username;
 	private String password;
 
@@ -71,6 +79,24 @@ public class LoginController {
 			stage.setScene(scene);
 			stage.show();
 			((Node) (event.getSource())).getScene().getWindow().hide();
+			
+			if(rememberCheckbox.isSelected()) {
+				File file = new File("Account.dat");
+				FileWriter fileWriter = new FileWriter("Account.dat");
+				BufferedWriter writer = new BufferedWriter(fileWriter);
+		        boolean fileExists = file.exists();
+		        if(!fileExists) {
+		            try {
+		                fileExists = file.createNewFile();
+		            } catch (Exception e) {
+		            	System.err.println(e.getClass().getName() + ": " + e.getMessage());
+		            }
+		        }
+		        writer.write(usernameTextField.getText());
+	            writer.newLine();
+	            writer.write(passwordTextField.getText());
+	            writer.close();
+		    }
 		} catch (Exception e) {
 			connectionLabel.setText("Wrong data :(");
 			connectionLabel.setTextFill(Color.RED);
@@ -93,6 +119,22 @@ public class LoginController {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		try {
+			File file = new File("Account.dat");
+	        Scanner sc = new Scanner(file);
+	        String user = sc.nextLine();
+	        String pass = sc.nextLine();
+	        usernameTextField.setText(user);
+	        passwordTextField.setText(pass);
+	        sc.close();
+		}
+		catch(Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+		}
+		
+	}
+
 }
