@@ -122,7 +122,7 @@ public class MainController implements Initializable {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
-	
+
 	public void showValue() {
 		Person person = mainTable.getSelectionModel().getSelectedItem();
 		int id = person.getID().intValue();

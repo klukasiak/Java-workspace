@@ -13,85 +13,102 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="425.0" prefWidth="300.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.krystian.controller.LoginController">
-   <top>
-      <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="221.0" text="Login Panel" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
-         <font>
-            <Font name="Verdana" size="38.0" />
-         </font>
-      </Label>
-   </top>
-   <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="177.0" BorderPane.alignment="TOP_CENTER">
-         <children>
-            <Label fx:id="usernameLabel" maxHeight="-Infinity" maxWidth="-Infinity" text="Username" textAlignment="CENTER" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@user.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-            <TextField fx:id="usernameTextField" alignment="CENTER" maxHeight="-Infinity" />
-            <Label fx:id="passwordLabel" maxHeight="-Infinity" maxWidth="-Infinity" text="Password" textAlignment="CENTER" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@pass.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField fx:id="passwordTextField" alignment="CENTER" />
-         </children>
-         <opaqueInsets>
-            <Insets top="80.0" />
-         </opaqueInsets>
-         <BorderPane.margin>
-            <Insets top="50.0" />
-         </BorderPane.margin>
-      </VBox>
-   </center>
-   <bottom>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="157.0" BorderPane.alignment="TOP_CENTER">
-         <children>
-            <Button fx:id="signInButton" alignment="CENTER" mnemonicParsing="false" onAction="#test" style="-fx-background-color: #65ed7c;" text="Sign in" textFill="#2a6634">
-               <opaqueInsets>
-                  <Insets bottom="10.0" />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <CheckBox fx:id="rememberCheckbox" mnemonicParsing="false" text="CheckBox">
-               <graphic>
-                  <Label fx:id="rememberLabel" alignment="CENTER" text="Remember me?" textAlignment="CENTER" textFill="WHITE" />
-               </graphic>
-               <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" />
-               </VBox.margin>
-            </CheckBox>
-            <Label fx:id="connectionLabel" style="-fx-background-color: #303030;" text="Connection Label" />
-            <Label fx:id="registerLabel" text="New here?" textFill="WHITE">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </Label>
-            <Button fx:id="registerButton" mnemonicParsing="false" style="-fx-background-color: #1262e2;" text="Register" textFill="WHITE" />
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="30.0" />
-         </BorderPane.margin>
-      </VBox>
-   </bottom>
+<BorderPane prefHeight="425.0" prefWidth="300.0"
+	style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.krystian.controller.LoginController">
+	<top>
+		<Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER"
+			prefHeight="48.0" prefWidth="221.0" text="Login Panel" textAlignment="CENTER"
+			textFill="WHITE" BorderPane.alignment="TOP_CENTER">
+			<font>
+				<Font name="Verdana" size="38.0" />
+			</font>
+		</Label>
+	</top>
+	<center>
+		<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+			prefHeight="120.0" prefWidth="177.0" BorderPane.alignment="TOP_CENTER">
+			<children>
+				<Label fx:id="usernameLabel" maxHeight="-Infinity" maxWidth="-Infinity"
+					text="Username" textAlignment="CENTER" textFill="WHITE">
+					<graphic>
+						<ImageView fitHeight="22.0" fitWidth="57.0"
+							pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@user.png" />
+							</image>
+						</ImageView>
+					</graphic>
+				</Label>
+				<TextField fx:id="usernameTextField" alignment="CENTER"
+					maxHeight="-Infinity" />
+				<Label fx:id="passwordLabel" maxHeight="-Infinity" maxWidth="-Infinity"
+					text="Password" textAlignment="CENTER" textFill="WHITE">
+					<graphic>
+						<ImageView fitHeight="22.0" fitWidth="57.0"
+							pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@pass.png" />
+							</image>
+						</ImageView>
+					</graphic>
+					<VBox.margin>
+						<Insets top="20.0" />
+					</VBox.margin>
+				</Label>
+				<PasswordField fx:id="passwordTextField" alignment="CENTER" />
+			</children>
+			<opaqueInsets>
+				<Insets top="80.0" />
+			</opaqueInsets>
+			<BorderPane.margin>
+				<Insets top="50.0" />
+			</BorderPane.margin>
+		</VBox>
+	</center>
+	<bottom>
+		<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+			prefHeight="47.0" prefWidth="157.0" BorderPane.alignment="TOP_CENTER">
+			<children>
+				<Button fx:id="signInButton" alignment="CENTER"
+					mnemonicParsing="false" onAction="#test" style="-fx-background-color: #65ed7c;"
+					text="Sign in" textFill="#2a6634">
+					<opaqueInsets>
+						<Insets bottom="10.0" />
+					</opaqueInsets>
+					<VBox.margin>
+						<Insets bottom="10.0" />
+					</VBox.margin>
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<CheckBox fx:id="rememberCheckbox" mnemonicParsing="false"
+					text="CheckBox">
+					<graphic>
+						<Label fx:id="rememberLabel" alignment="CENTER" text="Remember me?"
+							textAlignment="CENTER" textFill="WHITE" />
+					</graphic>
+					<VBox.margin>
+						<Insets bottom="50.0" left="20.0" />
+					</VBox.margin>
+				</CheckBox>
+				<Label fx:id="connectionLabel" style="-fx-background-color: #303030;"
+					text="Connection Label" />
+				<Label fx:id="registerLabel" text="New here?" textFill="WHITE">
+					<VBox.margin>
+						<Insets top="20.0" />
+					</VBox.margin>
+					<padding>
+						<Insets bottom="10.0" />
+					</padding>
+				</Label>
+				<Button fx:id="registerButton" mnemonicParsing="false"
+					style="-fx-background-color: #1262e2;" text="Register" textFill="WHITE" />
+			</children>
+			<BorderPane.margin>
+				<Insets bottom="30.0" />
+			</BorderPane.margin>
+		</VBox>
+	</bottom>
 </BorderPane>

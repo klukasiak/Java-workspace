@@ -29,7 +29,7 @@ public class AddController {
 
 	@FXML
 	private Button addButton;
-	
+
 	@FXML
 	private Label statusLabel;
 

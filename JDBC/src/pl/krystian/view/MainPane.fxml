@@ -14,94 +14,142 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.krystian.controller.MainController">
-   <children>
-      <SplitPane dividerPositions="0.5" prefHeight="500.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane prefHeight="500.0" prefWidth="450.0">
-               <children>
-                  <TableView fx:id="mainTable" prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: #303030;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                      <TableColumn fx:id="idColumn" prefWidth="15.0" style="-fx-background-color: #444;" text="ID" />
-                      <TableColumn fx:id="firstNameColumn" prefWidth="112.0" style="-fx-background-color: #555;" text="First Name" />
-                        <TableColumn fx:id="lastNameColumn" prefWidth="98.0" style="-fx-background-color: #444;" text="Last Name" />
-                        <TableColumn fx:id="ageColumn" prefWidth="44.0" style="-fx-background-color: #555;" text="Age" />
-                        <TableColumn fx:id="cityColumn" prefWidth="90.0" style="-fx-background-color: #444;" text="City" />
-                        <TableColumn fx:id="nicknameColumn" prefWidth="75.0" style="-fx-background-color: #555;" text="Nickname" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </children></AnchorPane>
-          <AnchorPane prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: #303030;">
-               <children>
-                  <BorderPane prefHeight="500.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <top>
-                        <Label fx:id="titleLabel" text="Managment panel" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font name="Verdana" size="25.0" />
-                           </font>
-                        </Label>
-                     </top>
-                     <bottom>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Button fx:id="addButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Add new user" textFill="#428aff" onAction="#addNewUser">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="editButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Edit Selected User" textFill="#428aff">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Delete Selected User" textFill="#428aff">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin></Button>
-                              <Button fx:id="refreshButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #00a802;" text="Refresh" textFill="#00e202" onAction="#tableRefresh"/>
-                           </children>
-                        </VBox>
-                     </bottom>
-                     <center>
-                        <GridPane BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <BorderPane.margin>
-                              <Insets top="20.0" />
-                           </BorderPane.margin>
-                           <children>
-                              <Label text="First Name:" textFill="WHITE" GridPane.rowIndex="1" />
-                              <Label text="Last Name:" textFill="WHITE" GridPane.rowIndex="2" />
-                              <Label text="Age:" textFill="WHITE" GridPane.rowIndex="3" />
-                              <Label text="City" textFill="WHITE" GridPane.rowIndex="4" />
-                              <Label text="Nickname" textFill="WHITE" GridPane.rowIndex="5" />
-                              <Label fx:id="firstNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="ageLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label fx:id="nicknameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label text="ID:" textFill="WHITE" />
-                              <Label fx:id="idLabel" text="idLabel" textFill="#303030" GridPane.columnIndex="1" />
-                           </children>
-                        </GridPane>
-                     </center>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="900.0"
+	style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.krystian.controller.MainController">
+	<children>
+		<SplitPane dividerPositions="0.5" prefHeight="500.0"
+			prefWidth="750.0" AnchorPane.bottomAnchor="0.0"
+			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+			AnchorPane.topAnchor="0.0">
+			<items>
+				<AnchorPane prefHeight="500.0" prefWidth="450.0">
+					<children>
+						<TableView fx:id="mainTable" prefHeight="500.0"
+							prefWidth="450.0" style="-fx-background-color: #303030;"
+							AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+							AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<columns>
+								<TableColumn fx:id="idColumn" prefWidth="15.0"
+									style="-fx-background-color: #444;" text="ID" />
+								<TableColumn fx:id="firstNameColumn" prefWidth="112.0"
+									style="-fx-background-color: #555;" text="First Name" />
+								<TableColumn fx:id="lastNameColumn" prefWidth="98.0"
+									style="-fx-background-color: #444;" text="Last Name" />
+								<TableColumn fx:id="ageColumn" prefWidth="44.0"
+									style="-fx-background-color: #555;" text="Age" />
+								<TableColumn fx:id="cityColumn" prefWidth="90.0"
+									style="-fx-background-color: #444;" text="City" />
+								<TableColumn fx:id="nicknameColumn" prefWidth="75.0"
+									style="-fx-background-color: #555;" text="Nickname" />
+							</columns>
+							<columnResizePolicy>
+								<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+							</columnResizePolicy>
+						</TableView>
+					</children>
+				</AnchorPane>
+				<AnchorPane prefHeight="500.0" prefWidth="450.0"
+					style="-fx-background-color: #303030;">
+					<children>
+						<BorderPane prefHeight="500.0" prefWidth="450.0"
+							AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+							AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<top>
+								<Label fx:id="titleLabel" text="Managment panel" textFill="WHITE"
+									BorderPane.alignment="CENTER">
+									<font>
+										<Font name="Verdana" size="25.0" />
+									</font>
+								</Label>
+							</top>
+							<bottom>
+								<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0"
+									BorderPane.alignment="CENTER">
+									<children>
+										<Button fx:id="addButton" mnemonicParsing="false"
+											prefWidth="130.0" style="-fx-background-color: #0041aa;"
+											text="Add new user" textFill="#428aff" onAction="#addNewUser">
+											<VBox.margin>
+												<Insets bottom="10.0" />
+											</VBox.margin>
+										</Button>
+										<Button fx:id="editButton" mnemonicParsing="false"
+											prefWidth="130.0" style="-fx-background-color: #0041aa;"
+											text="Edit Selected User" textFill="#428aff">
+											<VBox.margin>
+												<Insets bottom="10.0" />
+											</VBox.margin>
+										</Button>
+										<Button fx:id="deleteButton" maxHeight="-Infinity"
+											maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+											mnemonicParsing="false" prefWidth="130.0"
+											style="-fx-background-color: #0041aa;" text="Delete Selected User"
+											textFill="#428aff">
+											<VBox.margin>
+												<Insets bottom="10.0" />
+											</VBox.margin>
+										</Button>
+										<Button fx:id="refreshButton" mnemonicParsing="false"
+											prefWidth="130.0" style="-fx-background-color: #00a802;"
+											text="Refresh" textFill="#00e202" onAction="#tableRefresh" />
+									</children>
+								</VBox>
+							</bottom>
+							<center>
+								<GridPane BorderPane.alignment="CENTER">
+									<columnConstraints>
+										<ColumnConstraints hgrow="SOMETIMES"
+											minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES"
+											minWidth="10.0" prefWidth="100.0" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints minHeight="10.0" prefHeight="30.0"
+											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0"
+											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0"
+											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0"
+											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0"
+											vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0"
+											vgrow="SOMETIMES" />
+									</rowConstraints>
+									<BorderPane.margin>
+										<Insets top="20.0" />
+									</BorderPane.margin>
+									<children>
+										<Label text="First Name:" textFill="WHITE"
+											GridPane.rowIndex="1" />
+										<Label text="Last Name:" textFill="WHITE"
+											GridPane.rowIndex="2" />
+										<Label text="Age:" textFill="WHITE" GridPane.rowIndex="3" />
+										<Label text="City" textFill="WHITE" GridPane.rowIndex="4" />
+										<Label text="Nickname" textFill="WHITE"
+											GridPane.rowIndex="5" />
+										<Label fx:id="firstNameLabel" text="Label"
+											GridPane.columnIndex="1" GridPane.rowIndex="1" />
+										<Label fx:id="lastNameLabel" text="Label"
+											GridPane.columnIndex="1" GridPane.rowIndex="2" />
+										<Label fx:id="ageLabel" text="Label"
+											GridPane.columnIndex="1" GridPane.rowIndex="3" />
+										<Label fx:id="cityLabel" text="Label"
+											GridPane.columnIndex="1" GridPane.rowIndex="4" />
+										<Label fx:id="nicknameLabel" text="Label"
+											GridPane.columnIndex="1" GridPane.rowIndex="5" />
+										<Label text="ID:" textFill="WHITE" />
+										<Label fx:id="idLabel" text="idLabel" textFill="#303030"
+											GridPane.columnIndex="1" />
+									</children>
+								</GridPane>
+							</center>
+						</BorderPane>
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+	</children>
 </AnchorPane>

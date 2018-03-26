@@ -79,24 +79,24 @@ public class LoginController implements Initializable {
 			stage.setScene(scene);
 			stage.show();
 			((Node) (event.getSource())).getScene().getWindow().hide();
-			
-			if(rememberCheckbox.isSelected()) {
+
+			if (rememberCheckbox.isSelected()) {
 				File file = new File("Account.dat");
 				FileWriter fileWriter = new FileWriter("Account.dat");
 				BufferedWriter writer = new BufferedWriter(fileWriter);
-		        boolean fileExists = file.exists();
-		        if(!fileExists) {
-		            try {
-		                fileExists = file.createNewFile();
-		            } catch (Exception e) {
-		            	System.err.println(e.getClass().getName() + ": " + e.getMessage());
-		            }
-		        }
-		        writer.write(usernameTextField.getText());
-	            writer.newLine();
-	            writer.write(passwordTextField.getText());
-	            writer.close();
-		    }
+				boolean fileExists = file.exists();
+				if (!fileExists) {
+					try {
+						fileExists = file.createNewFile();
+					} catch (Exception e) {
+						System.err.println(e.getClass().getName() + ": " + e.getMessage());
+					}
+				}
+				writer.write(usernameTextField.getText());
+				writer.newLine();
+				writer.write(passwordTextField.getText());
+				writer.close();
+			}
 		} catch (Exception e) {
 			connectionLabel.setText("Wrong data :(");
 			connectionLabel.setTextFill(Color.RED);
@@ -124,17 +124,16 @@ public class LoginController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
 			File file = new File("Account.dat");
-	        Scanner sc = new Scanner(file);
-	        String user = sc.nextLine();
-	        String pass = sc.nextLine();
-	        usernameTextField.setText(user);
-	        passwordTextField.setText(pass);
-	        sc.close();
-		}
-		catch(Exception e) {
+			Scanner sc = new Scanner(file);
+			String user = sc.nextLine();
+			String pass = sc.nextLine();
+			usernameTextField.setText(user);
+			passwordTextField.setText(pass);
+			sc.close();
+		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
-		
+
 	}
 
 }
