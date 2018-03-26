@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import pl.krystian.DBConnection;
 import pl.krystian.Person;
 
@@ -69,12 +71,16 @@ public class MainController implements Initializable{
     @FXML
     private Label nicknameLabel;
     
+    @FXML
+    private Label idLabel;
+    
     private ObservableList<Person> perslist = FXCollections.observableArrayList();
     private DBConnection conn = new DBConnection();
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		tableRefresh();
+		mainTable.addEventFilter(MouseEvent.MOUSE_CLICKED, x -> showValue());
 	}
 	
 	public ObservableList<Person> getPersonList(){
@@ -109,5 +115,28 @@ public class MainController implements Initializable{
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
+	
+	public void showValue() {
+		Person person = mainTable.getSelectionModel().getSelectedItem();
+		int id = person.getID().intValue();
+		idLabel.setText(String.valueOf(id));
+		idLabel.setTextFill(Color.WHITE);
+		String firstName = person.getFirstName().getValue();
+		firstNameLabel.setText(firstName);
+		firstNameLabel.setTextFill(Color.WHITE);
+		String lastName = person.getLastName().getValue();
+		lastNameLabel.setText(lastName);
+		lastNameLabel.setTextFill(Color.WHITE);
+		int age = person.getAge().intValue();
+		ageLabel.setText(String.valueOf(age));
+		ageLabel.setTextFill(Color.WHITE);
+		String city = person.getCity().getValue();
+		cityLabel.setText(city);
+		cityLabel.setTextFill(Color.WHITE);
+		String nickname = person.getNickname().getValue();
+		nicknameLabel.setText(nickname);
+		nicknameLabel.setTextFill(Color.WHITE);
+	}
+	
 	
 }
