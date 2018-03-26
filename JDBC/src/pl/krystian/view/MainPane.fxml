@@ -61,7 +61,7 @@
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin></Button>
-                              <Button fx:id="refreshButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #00a802;" text="Refresh" textFill="#00e202" />
+                              <Button fx:id="refreshButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #00a802;" text="Refresh" textFill="#00e202" onAction="#tableRefresh"/>
                            </children>
                         </VBox>
                      </bottom>

@@ -102,6 +102,8 @@ public class MainController implements Initializable {
 	}
 
 	public void tableRefresh() {
+		mainTable.getItems().clear();
+		perslist.clear();
 		try {
 			Statement stmt = conn.connect("postgres", "qwerty").createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
@@ -120,7 +122,7 @@ public class MainController implements Initializable {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
-
+	
 	public void showValue() {
 		Person person = mainTable.getSelectionModel().getSelectedItem();
 		int id = person.getID().intValue();
