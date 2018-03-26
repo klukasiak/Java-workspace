@@ -72,7 +72,7 @@ public class LoginController {
 			stage.show();
 			((Node) (event.getSource())).getScene().getWindow().hide();
 		} catch (Exception e) {
-			connectionLabel.setText("B³edne dane :(");
+			connectionLabel.setText("Wrong data :(");
 			connectionLabel.setTextFill(Color.RED);
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}

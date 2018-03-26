@@ -47,7 +47,7 @@
                      <bottom>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="addButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Add new user" textFill="#428aff">
+                              <Button fx:id="addButton" mnemonicParsing="false" prefWidth="130.0" style="-fx-background-color: #0041aa;" text="Add new user" textFill="#428aff" onAction="#addNewUser">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>

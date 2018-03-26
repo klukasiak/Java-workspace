@@ -7,101 +7,106 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import pl.krystian.DBConnection;
 import pl.krystian.Person;
 
-public class MainController implements Initializable{
+public class MainController implements Initializable {
 
-    @FXML
-    private TableView<Person> mainTable;
+	@FXML
+	private TableView<Person> mainTable;
 
-    @FXML
-    private TableColumn<Person, Integer> idColumn;
+	@FXML
+	private TableColumn<Person, Integer> idColumn;
 
-    @FXML
-    private TableColumn<Person, String> firstNameColumn;
+	@FXML
+	private TableColumn<Person, String> firstNameColumn;
 
-    @FXML
-    private TableColumn<Person, String> lastNameColumn;
+	@FXML
+	private TableColumn<Person, String> lastNameColumn;
 
-    @FXML
-    private TableColumn<Person, Integer> ageColumn;
+	@FXML
+	private TableColumn<Person, Integer> ageColumn;
 
-    @FXML
-    private TableColumn<Person, String> cityColumn;
+	@FXML
+	private TableColumn<Person, String> cityColumn;
 
-    @FXML
-    private TableColumn<Person, String> nicknameColumn;
+	@FXML
+	private TableColumn<Person, String> nicknameColumn;
 
-    @FXML
-    private Label titleLabel;
+	@FXML
+	private Label titleLabel;
 
-    @FXML
-    private Button addButton;
+	@FXML
+	private Button addButton;
 
-    @FXML
-    private Button editButton;
+	@FXML
+	private Button editButton;
 
-    @FXML
-    private Button deleteButton;
-    
-    @FXML
-    private Button refreshButton;
+	@FXML
+	private Button deleteButton;
 
-    @FXML
-    private Label firstNameLabel;
+	@FXML
+	private Button refreshButton;
 
-    @FXML
-    private Label lastNameLabel;
+	@FXML
+	private Label firstNameLabel;
 
-    @FXML
-    private Label ageLabel;
+	@FXML
+	private Label lastNameLabel;
 
-    @FXML
-    private Label cityLabel;
+	@FXML
+	private Label ageLabel;
 
-    @FXML
-    private Label nicknameLabel;
-    
-    @FXML
-    private Label idLabel;
-    
-    private ObservableList<Person> perslist = FXCollections.observableArrayList();
-    private DBConnection conn = new DBConnection();
-    
+	@FXML
+	private Label cityLabel;
+
+	@FXML
+	private Label nicknameLabel;
+
+	@FXML
+	private Label idLabel;
+
+	private ObservableList<Person> perslist = FXCollections.observableArrayList();
+	private DBConnection conn = new DBConnection();
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		tableRefresh();
 		mainTable.addEventFilter(MouseEvent.MOUSE_CLICKED, x -> showValue());
 	}
-	
-	public ObservableList<Person> getPersonList(){
+
+	public ObservableList<Person> getPersonList() {
 		return perslist;
 	}
-	
+
 	public void tableInit() {
 		idColumn.setCellValueFactory(cellData -> cellData.getValue().getID().asObject());
 		firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().getFirstName());
-        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().getLastName());
-        ageColumn.setCellValueFactory(cellData -> cellData.getValue().getAge().asObject());
-        cityColumn.setCellValueFactory(cellData -> cellData.getValue().getCity());
-        nicknameColumn.setCellValueFactory(cellData -> cellData.getValue().getNickname());
+		lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().getLastName());
+		ageColumn.setCellValueFactory(cellData -> cellData.getValue().getAge().asObject());
+		cityColumn.setCellValueFactory(cellData -> cellData.getValue().getCity());
+		nicknameColumn.setCellValueFactory(cellData -> cellData.getValue().getNickname());
 	}
-	
+
 	public void tableRefresh() {
 		try {
 			Statement stmt = conn.connect("postgres", "qwerty").createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
 			tableInit();
-			while(rs.next()) {
+			while (rs.next()) {
 				int ID = rs.getInt("id_user");
 				String firstName = rs.getString("firstname");
 				String lastName = rs.getString("lastname");
@@ -115,7 +120,7 @@ public class MainController implements Initializable{
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
-	
+
 	public void showValue() {
 		Person person = mainTable.getSelectionModel().getSelectedItem();
 		int id = person.getID().intValue();
@@ -137,6 +142,21 @@ public class MainController implements Initializable{
 		nicknameLabel.setText(nickname);
 		nicknameLabel.setTextFill(Color.WHITE);
 	}
-	
-	
+
+	@FXML
+	private void addNewUser(ActionEvent event) {
+		try {
+			Parent root;
+
+			root = FXMLLoader.load(getClass().getClassLoader().getResource("pl/krystian/view/AddPane.fxml"));
+			Stage stage = new Stage();
+			stage.setTitle("Add new user");
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+		}
+	}
+
 }
