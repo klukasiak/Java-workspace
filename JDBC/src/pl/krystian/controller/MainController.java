@@ -81,6 +81,8 @@ public class MainController implements Initializable {
 
 	private ObservableList<Person> perslist = FXCollections.observableArrayList();
 	private DBConnection conn = new DBConnection();
+	private String username;
+	private String password;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -105,7 +107,7 @@ public class MainController implements Initializable {
 		mainTable.getItems().clear();
 		perslist.clear();
 		try {
-			Statement stmt = conn.connect("postgres", "qwerty").createStatement();
+			Statement stmt = conn.connect(getUsername(), getPassword()).createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM USERS;");
 			tableInit();
 			while (rs.next()) {
@@ -160,5 +162,39 @@ public class MainController implements Initializable {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		}
 	}
+	
+	@FXML
+	private void editSelectedUser(ActionEvent event) {
+		try {
+			Person person = mainTable.getSelectionModel().getSelectedItem();
+			Parent root;
+			FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("pl/krystian/view/EditPane.fxml"));
+			root = loader.load();
+			EditController controller = loader.<EditController>getController();
+			controller.setPerson(person);
+			Stage stage = new Stage();
+			stage.setTitle("Edit user");
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+		}
+	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
 }

@@ -76,7 +76,7 @@
 										</Button>
 										<Button fx:id="editButton" mnemonicParsing="false"
 											prefWidth="130.0" style="-fx-background-color: #0041aa;"
-											text="Edit Selected User" textFill="#428aff">
+											text="Edit Selected User" textFill="#428aff" onAction="#editSelectedUser">
 											<VBox.margin>
 												<Insets bottom="10.0" />
 											</VBox.margin>

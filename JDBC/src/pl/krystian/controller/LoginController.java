@@ -72,7 +72,11 @@ public class LoginController implements Initializable {
 
 			Parent root;
 
-			root = FXMLLoader.load(getClass().getClassLoader().getResource("pl/krystian/view/MainPane.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("pl/krystian/view/MainPane.fxml"));
+			root = loader.load();
+			MainController controller = loader.<MainController>getController();
+			controller.setUsername(username);
+			controller.setPassword(password);
 			Stage stage = new Stage();
 			stage.setTitle("SQL CRUD Panel - LOGGED IN");
 			Scene scene = new Scene(root);
